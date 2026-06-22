@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Pulse · How the world feels about its leaders</title>
+  <meta name="description" content="An anonymous, click-only barometer of support for current and historical public leaders. Not a scientific poll." />
+  <script src="assets/js/theme-init.js"></script>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/fixes.css" />
+  <link rel="stylesheet" href="assets/css/premium.css" />
+  <link rel="stylesheet" href="assets/css/refine.css" />
+  <link rel="stylesheet" href="assets/css/edition.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body class="edition">
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark"><span data-icon="globe"></span></span>
+        <span>Global Pulse</span>
+      </a>
+      <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Menu">☰</button>
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="index.html" class="is-active">Home</a></li>
+          <li><a href="leaders.html">Explore</a></li>
+          <li><a href="map.html">World Map</a></li>
+          <li><a href="rankings.html">Rankings</a></li>
+          <li><a href="timeline.html">History</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions"></div>
+    </div>
+  </header>
+
+  <section class="ed-hero">
+    <div class="ed-wrap">
+      <p class="ed-eyebrow">Anonymous · Global · Non-partisan</p>
+      <h1 class="ed-title">How does the world feel about its leaders?</h1>
+      <p class="ed-lead">
+        An anonymous, click-only barometer of support for current and historical public figures.
+        This is not a scientific poll — the figures reflect visitors to this site, corrected for sample reliability.
+      </p>
+      <form class="ed-search" role="search" action="leaders.html" method="get">
+        <span data-icon="search"></span>
+        <label class="sr-only" for="q">Search people</label>
+        <input id="q" name="q" type="search" placeholder="Search a person, country or era…" autocomplete="off" />
+        <button type="submit">Explore</button>
+      </form>
+      <p class="ed-note">Results are non-official and use privacy-preserving anti-abuse signals. No accounts, no personal data.</p>
+    </div>
+  </section>
+
+  <section class="ed-wrap ed-stats ed-fade" aria-label="Live statistics">
+    <div class="ed-stat">
+      <div class="ed-stat-num tabular" data-count="2847291">0</div>
+      <div class="ed-stat-label">Votes cast today</div>
+      <div class="ed-stat-sub">▲ 8.4% vs. yesterday</div>
+    </div>
+    <div class="ed-stat">
+      <div class="ed-stat-num tabular" data-count="14">0</div>
+      <div class="ed-stat-label">Leaders tracked</div>
+      <div class="ed-stat-sub" style="color:var(--ed-muted)">Continuously expanding</div>
+    </div>
+    <div class="ed-stat">
+      <div class="ed-stat-num tabular" data-count="142">0</div>
+      <div class="ed-stat-label">Regions active</div>
+      <div class="ed-stat-sub" style="color:var(--ed-muted)">Aggregated view</div>
+    </div>
+    <div class="ed-stat">
+      <div class="ed-stat-num tabular" data-count="1">0</div>
+      <div class="ed-stat-label">Under review</div>
+      <div class="ed-stat-sub is-warn">Anomalous traffic frozen</div>
+    </div>
+  </section>
+
+  <main>
+    <section class="ed-section">
+      <div class="ed-wrap">
+        <header class="ed-section-head ed-fade">
+          <p class="ed-kicker">Trusted ranking</p>
+          <h2 class="ed-h2">Most-approved leaders right now</h2>
+          <p class="ed-sub">Ranked by reliability-corrected approval over the last 30 days. Low-sample figures are excluded from the main board.</p>
+        </header>
+
+        <div class="ed-chart ed-fade" data-approval-chart>
+          <p style="padding:24px 0;color:var(--ed-muted)">Loading…</p>
+        </div>
+
+        <p class="ed-foot">
+          Non-scientific sample. Rankings apply a Wilson confidence correction and require ≥ 1,000 valid votes to enter the board.
+          Aggregated every 5 minutes. <a href="methodology.html">Read the methodology →</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="ed-section">
+      <div class="ed-wrap">
+        <header class="ed-section-head ed-fade">
+          <p class="ed-kicker">Explore</p>
+          <h2 class="ed-h2">Ways into the data</h2>
+        </header>
+        <div class="ed-tiles ed-fade">
+          <a class="ed-tile" href="rankings.html?type=current">
+            <span class="ed-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></span>
+            <strong>Current leaders</strong>
+            <span>Heads of state and government in office today.</span>
+            <span class="ed-tile-go">View ranking →</span>
+          </a>
+          <a class="ed-tile" href="rankings.html?tab=history">
+            <span class="ed-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <strong>Historical figures</strong>
+            <span>Leaders across eras, from antiquity to the present.</span>
+            <span class="ed-tile-go">View history →</span>
+          </a>
+          <a class="ed-tile" href="map.html">
+            <span class="ed-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></span>
+            <strong>World map</strong>
+            <span>Country-level aggregates — no cities, no individuals.</span>
+            <span class="ed-tile-go">Open map →</span>
+          </a>
+          <a class="ed-tile" href="rankings.html?tab=controversy">
+            <span class="ed-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="13" y="7" width="3" height="10"/></svg></span>
+            <strong>Most divided</strong>
+            <span>Where support and opposition are closest.</span>
+            <span class="ed-tile-go">View board →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="ed-section" style="border-bottom:none;padding-bottom:0">
+      <div class="ed-wrap">
+        <div class="ed-trust ed-fade">
+          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 16v-5M12 8h.01"/></svg></span>
+          <span>
+            <strong>Why you can trust the numbers.</strong>
+            Global Pulse is an independent, non-partisan project. We never sell votes, never run targeted political advertising,
+            and never sell individual voting records. Figures are aggregated and reflect this site's anonymous visitors only — not official ratings or election forecasts.
+            <a href="methodology.html">How we calculate approval →</a>
+          </span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer data-site-footer></footer>
+
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/map-data.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/footer.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/pro.js"></script>
+  <script src="assets/js/ads.js"></script>
+  <script>
+    (function () {
+      function pad(n) { return n < 10 ? "0" + n : "" + n; }
+
+      function renderChart() {
+        var host = document.querySelector("[data-approval-chart]");
+        if (!host || !window.GP_DATA) return;
+        var list = window.GP_DATA.LEADERS_DB
+          .filter(function (l) { return l.rate != null && !l.frozen; })
+          .sort(function (a, b) { return b.rate - a.rate; })
+          .slice(0, 8);
+
+        host.innerHTML = list.map(function (l, i) {
+          return (
+            '<a class="ed-bar-row" href="leader.html?id=' + l.id + '">' +
+            '<span class="ed-bar-rank">' + pad(i + 1) + '</span>' +
+            '<img class="ed-bar-avatar" data-avatar="' + l.seed + '" data-avatar-size="40" alt="" />' +
+            '<span class="ed-bar-name"><strong>' + l.name + '</strong><span>' + l.country + ' · ' + l.role + '</span></span>' +
+            '<span class="ed-bar-track"><span class="ed-bar-fill" data-w="' + l.rate + '"></span></span>' +
+            '<span class="ed-bar-val">' + l.rate.toFixed(1) + '<span>%</span></span>' +
+            '</a>'
+          );
+        }).join("");
+
+        if (window.GP_UI) window.GP_UI.applyAvatars();
+
+        var fills = host.querySelectorAll(".ed-bar-fill");
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            host.querySelectorAll(".ed-bar-fill").forEach(function (f) {
+              f.style.width = f.dataset.w + "%";
+            });
+            io.disconnect();
+          });
+        }, { threshold: 0.2 });
+        io.observe(host);
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        renderChart();
+      });
+    })();
+  </script>
+</body>
+</html>

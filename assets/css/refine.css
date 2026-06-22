@@ -1,0 +1,625 @@
+/**
+ * refine.css — 高级感精修层（最后加载，覆盖在 premium.css 之上）
+ * 目标：在不改动现有结构的前提下，提升动效节奏、材质、交互反馈与排版精度。
+ * 关键词：克制、精密、档案馆、数据终端、电影级层次。
+ */
+
+/* ============ 0. 全局排版与质感微调 ============ */
+:root {
+  --ring: 0 0 0 3px rgba(26, 74, 140, 0.28);
+  --hairline: rgba(15, 17, 20, 0.08);
+  --elevate-1: 0 1px 2px rgba(15, 17, 20, 0.04), 0 8px 24px -12px rgba(15, 17, 20, 0.18);
+  --elevate-2: 0 2px 4px rgba(15, 17, 20, 0.05), 0 24px 48px -20px rgba(15, 17, 20, 0.28);
+  --sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 60%);
+}
+
+html { text-rendering: optimizeLegibility; }
+
+body {
+  letter-spacing: -0.006em;
+}
+
+/* 标题字距更收紧、更有“印刷感” */
+.hero h1,
+.section-header h2,
+.rank-hero h1,
+.profile-card h1,
+.legal-page h1 {
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+}
+
+/* 统一可见焦点态（无障碍 + 高级感） */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: none;
+  box-shadow: var(--ring);
+  border-radius: 8px;
+}
+
+/* ============ 1. 进场动效节奏 ============ */
+/* 顶层 reveal 分层进场，带轻微缩放，比纯位移更高级 */
+.reveal {
+  transform: translateY(20px) scale(0.992);
+  transition:
+    opacity 0.7s var(--ease-out),
+    transform 0.7s var(--ease-out);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  transform: none;
+}
+
+/* Hero 文案逐行上浮 */
+.hero-eyebrow,
+.hero h1,
+.hero-lead,
+.search-hero,
+.quick-chips,
+.hero-disclaimer {
+  animation: hero-rise 0.9s var(--ease-out) backwards;
+}
+.hero-eyebrow { animation-delay: 0.05s; }
+.hero h1 { animation-delay: 0.14s; }
+.hero-lead { animation-delay: 0.24s; }
+.search-hero { animation-delay: 0.34s; }
+.quick-chips { animation-delay: 0.42s; }
+.hero-disclaimer { animation-delay: 0.5s; }
+
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(18px); filter: blur(6px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .hero-eyebrow, .hero h1, .hero-lead,
+  .search-hero, .quick-chips, .hero-disclaimer {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* ============ 2. 导航更精致 ============ */
+.nav-links a {
+  position: relative;
+  transition: color 0.25s var(--ease-out);
+}
+.nav-links a:not(.is-active)::after {
+  content: "";
+  position: absolute;
+  left: 14px; right: 14px; bottom: 4px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0;
+  transform: scaleX(0.3);
+  transform-origin: center;
+  transition: opacity 0.25s, transform 0.25s var(--ease-out);
+}
+.nav-links a:not(.is-active):hover::after {
+  opacity: 0.5;
+  transform: scaleX(1);
+}
+
+.brand-mark {
+  transition: transform 0.4s var(--ease-spring), box-shadow 0.4s;
+}
+.brand:hover .brand-mark {
+  transform: rotate(-8deg) scale(1.06);
+}
+
+/* ============ 3. 搜索框 / chips ============ */
+.search-hero .btn-primary {
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.3s, background 0.25s;
+}
+.search-hero:focus-within .btn-primary {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+.chip {
+  transition: transform 0.25s var(--ease-spring), background 0.2s, color 0.2s, border-color 0.2s;
+}
+.chip:hover { transform: translateY(-2px); }
+.chip:active { transform: translateY(0); }
+
+/* ============ 4. 统计条 — 数字呼吸 + 顶部细线呼吸 ============ */
+.stats-strip::before {
+  background-size: 200% 100%;
+  animation: stat-gradient 9s linear infinite;
+}
+@keyframes stat-gradient {
+  to { background-position: 200% 0; }
+}
+.stat-cell { transition: background 0.3s; }
+.stat-cell:hover { background: var(--bg-elevated); }
+.stat-value { transition: color 0.3s; }
+
+/* ============ 5. 排行榜行 — 更克制的层次 ============ */
+.leader-row {
+  transition:
+    transform 0.35s var(--ease-out),
+    box-shadow 0.35s var(--ease-out),
+    border-color 0.3s;
+}
+.leader-row::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--sheen);
+  opacity: 0;
+  transition: opacity 0.35s;
+  pointer-events: none;
+}
+.leader-row:hover::after { opacity: 1; }
+.leader-row:hover .leader-avatar {
+  transform: scale(1.04);
+}
+.leader-avatar { transition: transform 0.35s var(--ease-spring); }
+
+/* 前三名金质徽记 */
+.rank-num--top {
+  position: relative;
+}
+.leader-row:first-child .rank-num--top::after {
+  content: "";
+  position: absolute;
+  inset: -6px -4px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(154, 116, 32, 0.18), transparent 70%);
+  z-index: -1;
+}
+
+/* sparkline 在 hover 时点亮 */
+.sparkline { transition: opacity 0.3s; opacity: 0.7; }
+.leader-row:hover .sparkline { opacity: 1; }
+
+/* ============ 6. 卡片光泽与升起 ============ */
+.glass-card,
+.leader-card,
+.profile-card {
+  position: relative;
+  transition:
+    transform 0.4s var(--ease-out),
+    box-shadow 0.4s var(--ease-out),
+    border-color 0.3s;
+}
+.glass-card::before,
+.leader-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--sheen);
+  opacity: 0.5;
+  pointer-events: none;
+}
+.leader-card:hover {
+  border-color: rgba(15, 17, 20, 0.12);
+}
+
+/* ============ 7. 投票按钮 — 高级交互反馈 ============ */
+.btn-vote {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 0.2s var(--ease-spring),
+    box-shadow 0.3s,
+    filter 0.25s;
+}
+.btn-vote::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--sheen);
+  opacity: 0.5;
+  z-index: -1;
+}
+.btn-vote:not(:disabled):hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+.btn-vote:not(:disabled):active {
+  transform: translateY(0) scale(0.985);
+}
+.btn-support:not(:disabled):hover { box-shadow: 0 10px 30px var(--support-glow); }
+.btn-oppose:not(:disabled):hover { box-shadow: 0 10px 30px var(--oppose-glow); }
+
+/* 已选中：实心边 + 勾选脉冲 */
+.btn-vote.is-selected {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--ink);
+  animation: vote-pop 0.45s var(--ease-spring);
+}
+@keyframes vote-pop {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+.btn-vote .vote-status { transition: opacity 0.2s; }
+
+/* 投票成功时的水波（由 JS 触发，添加 .is-ripple 类） */
+.btn-vote.is-ripple::after {
+  content: "";
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%) scale(0);
+  animation: vote-ripple 0.6s var(--ease-out) forwards;
+  pointer-events: none;
+}
+@keyframes vote-ripple {
+  to { transform: translate(-50%, -50%) scale(26); opacity: 0; }
+}
+
+/* ============ 8. 仪表盘 / 情绪条 ============ */
+.gauge-ring circle { transition: stroke-dashoffset 0.8s var(--ease-out); }
+.gauge-main {
+  background: linear-gradient(180deg, var(--support), #12a088);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sentiment-bar {
+  height: 10px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12);
+  position: relative;
+}
+.sentiment-bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.25), transparent 50%);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* ============ 9. 时间线 ============ */
+.timeline li::before {
+  transition: transform 0.3s var(--ease-spring), box-shadow 0.3s;
+}
+.timeline li:hover::before {
+  transform: scale(1.4);
+  box-shadow: 0 0 0 6px var(--gold-soft);
+}
+
+/* ============ 10. Toast ============ */
+.gp-toast {
+  padding: 13px 22px;
+  border-radius: 14px;
+  background: rgba(15, 17, 20, 0.92);
+  backdrop-filter: blur(12px) saturate(1.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  letter-spacing: 0.01em;
+}
+
+/* ============ 11. 页脚 ============ */
+.site-footer .brand-mark { box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4); }
+.footer-col a { transition: color 0.2s, padding-left 0.25s var(--ease-out); }
+.footer-col a:hover { padding-left: 4px; }
+
+/* ============ 12. 滚动条（点睛细节） ============ */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border-radius: 999px;
+  border: 3px solid var(--bg);
+}
+*::-webkit-scrollbar-thumb:hover { background: var(--muted-2); }
+
+/* ============ 13. 暗色主题下的精修补偿 ============ */
+html[data-theme="dark"] {
+  --hairline: rgba(255, 255, 255, 0.1);
+}
+html[data-theme="dark"] .glass-card::before,
+html[data-theme="dark"] .leader-card::before,
+html[data-theme="dark"] .leader-row::after {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 60%);
+}
+html[data-theme="dark"] .gp-toast {
+  background: rgba(26, 31, 40, 0.95);
+}
+
+/* ============ 14. 选区与图片细节 ============ */
+.leader-avatar,
+.avatar-lg,
+.leader-card img {
+  background: linear-gradient(135deg, #e8ecef, #d4dbd4);
+}
+html[data-theme="dark"] .leader-avatar,
+html[data-theme="dark"] .avatar-lg,
+html[data-theme="dark"] .leader-card img {
+  background: linear-gradient(135deg, #232a35, #1a1f28);
+}
+
+/* ============ 15. 变现：定价卡 / 赞助位 / 支持页 ============ */
+.support-hero {
+  padding: calc(var(--nav-h) + 64px) 24px 40px;
+  text-align: center;
+  background: var(--hero-bg);
+  color: var(--hero-ink);
+  position: relative;
+  overflow: hidden;
+}
+.support-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(154, 116, 32, 0.18), transparent 60%);
+  pointer-events: none;
+}
+.support-hero h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  letter-spacing: -0.03em;
+  margin: 0 0 14px;
+  position: relative;
+}
+.support-hero p {
+  color: var(--hero-muted);
+  max-width: 56ch;
+  margin: 0 auto;
+  font-size: 16px;
+  position: relative;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 8px;
+}
+.price-card {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 26px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--elevate-1);
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s, border-color 0.3s;
+}
+.price-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--elevate-2);
+}
+.price-card--featured {
+  border-color: var(--gold-line);
+  box-shadow: var(--elevate-2), 0 0 0 1px var(--gold-line);
+}
+.price-card--featured::before {
+  content: "Popular";
+  align-self: flex-start;
+  padding: 4px 12px;
+  margin-bottom: 14px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: var(--gold-soft);
+  border-radius: 999px;
+}
+.price-card h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.price-card .price {
+  font-family: var(--font-mono);
+  font-size: 2.2rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  margin: 6px 0 2px;
+}
+.price-card .price small {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 400;
+}
+.price-card .price-sub {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0 0 18px;
+}
+.price-card ul {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+  flex: 1;
+}
+.price-card li {
+  position: relative;
+  padding-left: 26px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+.price-card li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--support);
+  font-weight: 700;
+}
+.price-card .btn { width: 100%; }
+
+.donate-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0 6px;
+}
+.donate-row button {
+  flex: 1;
+  min-width: 84px;
+  padding: 14px 10px;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--bg-elevated);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: transform 0.2s var(--ease-spring), border-color 0.2s, background 0.2s, color 0.2s;
+}
+.donate-row button:hover { transform: translateY(-2px); }
+.donate-row button.is-active {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+/* 赞助位 / 上下文广告位 —— 必须明显标注，不影响排序 */
+.sponsor-slot {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  margin: 12px 0;
+  background: var(--bg-elevated);
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-md);
+  position: relative;
+}
+.sponsor-slot::before {
+  content: "Sponsored";
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.sponsor-slot__body { flex: 1; }
+.sponsor-slot__body strong { display: block; font-size: 14px; }
+.sponsor-slot__body span { font-size: 12px; color: var(--muted); }
+
+@media (max-width: 880px) {
+  .pricing-grid { grid-template-columns: 1fr; }
+}
+
+/* ============ 16. 上下文广告位 / Pro 徽标 ============ */
+.ad-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px 22px 18px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--elevate-1);
+}
+.ad-card__label {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.ad-card__icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--civic-blue-soft);
+  color: var(--civic-blue);
+}
+.ad-card__icon svg { width: 22px; height: 22px; }
+.ad-card__body { flex: 1; min-width: 0; }
+.ad-card__body strong { display: block; font-size: 14px; font-weight: 600; }
+.ad-card__body span { font-size: 12px; color: var(--muted); }
+.ad-card__cta {
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--civic-blue);
+  white-space: nowrap;
+  transition: transform 0.2s var(--ease-spring);
+}
+.ad-card__cta:hover { transform: translateX(2px); }
+.ad-card__remove {
+  position: absolute;
+  bottom: 7px;
+  right: 12px;
+  font-size: 10px;
+  color: var(--muted-2);
+}
+.ad-card__remove:hover { color: var(--gold); }
+
+.ad-slot {
+  position: relative;
+  padding: 16px 0 22px;
+  min-height: 90px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--bg-elevated);
+}
+
+.ad-frame { margin: 28px 0; }
+.ad-frame--sidebar { margin: 16px 0 0; }
+
+@media (max-width: 560px) {
+  .ad-card { flex-wrap: wrap; }
+  .ad-card__cta { margin-left: 58px; }
+}
+
+/* Pro 徽标 */
+.pro-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #2a2204;
+  background: linear-gradient(135deg, #e8d4a8, #c9a44e);
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(154, 116, 32, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+/* 支持页：Pro 已激活状态条 */
+.pro-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  border-radius: var(--radius-md);
+  background: var(--gold-soft);
+  border: 1px solid var(--gold-line);
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.pro-status .pro-pill { flex-shrink: 0; }
+.pro-status button {
+  margin-left: auto;
+  font: inherit;
+  font-size: 13px;
+  color: var(--muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.pro-status button:hover { color: var(--oppose); }

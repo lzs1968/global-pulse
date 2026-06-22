@@ -1,0 +1,18 @@
+{
+  "name": "global-pulse",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Anonymous global leader approval barometer — vanilla JS, world map, Cloudflare-ready",
+  "license": "MIT",
+  "keywords": ["voting", "leaders", "approval-rating", "world-map", "cloudflare-pages", "d1", "vanilla-js", "open-source"],
+  "scripts": {
+    "dev": "wrangler pages dev . --d1=DB",
+    "db:create": "wrangler d1 create global-pulse-votes",
+    "db:init:local": "wrangler d1 execute global-pulse-votes --local --file=./schema.sql",
+    "db:init:remote": "wrangler d1 execute global-pulse-votes --remote --file=./schema.sql",
+    "deploy": "wrangler pages deploy ."
+  },
+  "devDependencies": {
+    "wrangler": "^3.80.0"
+  }
+}

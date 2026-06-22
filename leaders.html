@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="assets/js/theme-init.js"></script>
+  <title>Explore Leaders · Global Leader Approval Ratings</title>
+  <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/fixes.css" />
+  <link rel="stylesheet" href="assets/css/premium.css" />
+  <link rel="stylesheet" href="assets/css/refine.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark"><span data-icon="globe"></span></span><span>Global Pulse</span></a>
+      <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Menu">☰</button>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="leaders.html" class="is-active">Explore</a></li>
+          <li><a href="map.html">World Map</a></li>
+          <li><a href="rankings.html">Rankings</a></li>
+          <li><a href="timeline.html">History</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions"></div>
+    </div>
+  </header>
+
+  <div class="rank-hero" style="padding-bottom: 24px;">
+    <div class="section-inner">
+      <h1 style="font-family:var(--font-display);font-weight:400;margin:0 0 8px;">Explore Leaders</h1>
+      <p style="color:var(--muted);margin:0 0 20px;">Search by name, country, or role · Featuring many current and historical public figures</p>
+      <div class="explore-toolbar">
+        <input type="search" data-leaders-search placeholder="Search leaders, countries, regions…" aria-label="Search leaders" />
+        <a class="btn btn-ghost" href="rankings.html">View Rankings</a>
+        <a class="btn btn-ghost" href="map.html">World Map</a>
+      </div>
+      <div class="explore-filters" data-explore-filters>
+        <button type="button" class="chip is-active" data-filter="all">All</button>
+        <button type="button" class="chip" data-filter="current">Current</button>
+        <button type="button" class="chip" data-filter="history">Historical</button>
+        <button type="button" class="chip" data-filter="hot">Trending</button>
+        <button type="button" class="chip" data-filter="controversy">Controversial</button>
+      </div>
+      <div class="leaders-grid" data-leaders-grid></div>
+    </div>
+  </div>
+
+  <footer data-site-footer></footer>
+
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/map-data.js"></script>
+  <script src="assets/js/world-map.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/footer.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/pro.js"></script>
+  <script src="assets/js/ads.js"></script>
+</body>
+</html>

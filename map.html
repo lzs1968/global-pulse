@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="assets/js/theme-init.js"></script>
+  <title>World Map · Global Leader Approval Ratings</title>
+  <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/map.css" />
+  <link rel="stylesheet" href="assets/css/fixes.css" />
+  <link rel="stylesheet" href="assets/css/premium.css" />
+  <link rel="stylesheet" href="assets/css/refine.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark"><span data-icon="globe"></span></span><span>Global Pulse</span></a>
+      <button type="button" class="nav-toggle" data-nav-toggle aria-label="Menu">☰</button>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="leaders.html">Explore</a></li>
+          <li><a href="map.html" class="is-active">World Map</a></li>
+          <li><a href="rankings.html">Rankings</a></li>
+          <li><a href="timeline.html">History</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions"></div>
+    </div>
+  </header>
+
+  <div class="map-page">
+    <div class="map-page-main">
+      <div class="map-page-wrap">
+        <div id="world-map-full" role="application" aria-label="Global approval ratings interactive map"></div>
+      </div>
+      <div class="map-toolbar">
+        <a class="chip is-active" href="map.html">Country Heatmap</a>
+        <a class="chip" href="index.html">Home Leader Markers</a>
+        <a class="chip" href="leaders.html">Explore Leaders</a>
+      </div>
+    </div>
+
+    <aside class="map-sidebar">
+      <div class="map-sidebar-header">
+        <h1>Global Map</h1>
+        <p>Country-level aggregated approval · Last 30 days</p>
+      </div>
+      <div class="map-legend" data-map-legend aria-label="Legend"></div>
+      <div class="map-country-list" data-map-country-list role="list"></div>
+      <p class="map-sidebar-note">Click a country or list item on the right to focus. Countries without data appear light gray.</p>
+    </aside>
+  </div>
+
+  <footer data-site-footer></footer>
+
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/map-data.js"></script>
+  <script src="assets/vendor/leaflet/leaflet.js"></script>
+  <script src="assets/js/world-map.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/footer.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/pro.js"></script>
+  <script src="assets/js/ads.js"></script>
+</body>
+</html>

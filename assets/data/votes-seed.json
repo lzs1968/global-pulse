@@ -1,0 +1,19 @@
+{
+  "leaders": {
+    "lee": { "support": 85034, "oppose": 43416, "frozen": false },
+    "trudeau": { "support": 54731, "oppose": 39470, "frozen": false },
+    "merkel": { "support": 169894, "oppose": 142986, "frozen": false },
+    "lopez": { "support": 32184, "oppose": 35146, "frozen": false },
+    "biden": { "support": 420240, "oppose": 599760, "frozen": false },
+    "modi": { "support": 519144, "oppose": 372856, "frozen": false },
+    "lula": { "support": 216394, "oppose": 204606, "frozen": false },
+    "churchill": { "support": 130938, "oppose": 147062, "frozen": false },
+    "macron": { "support": 441499, "oppose": 448621, "frozen": false },
+    "kishida": { "support": 159488, "oppose": 196512, "frozen": false },
+    "albanese": { "support": 103158, "oppose": 94842, "frozen": false },
+    "putin": { "support": 171325, "oppose": 273675, "frozen": false },
+    "ramaphosa": { "support": 46719, "oppose": 40281, "frozen": false },
+    "xi": { "support": 0, "oppose": 0, "frozen": true }
+  },
+  "ledger": {}
+}

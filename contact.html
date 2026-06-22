@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="assets/js/theme-init.js"></script>
+  <title>Contact Us · Global Pulse</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/fixes.css" />
+  <link rel="stylesheet" href="assets/css/premium.css" />
+  <link rel="stylesheet" href="assets/css/refine.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark"><span data-icon="globe"></span></span><span>Global Pulse</span></a>
+      <button type="button" class="nav-toggle" data-nav-toggle aria-label="Menu">☰</button>
+      <nav aria-label="Main navigation"><ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="leaders.html">Explore</a></li>
+        <li><a href="map.html">World Map</a></li>
+        <li><a href="rankings.html">Rankings</a></li>
+        <li><a href="timeline.html">History</a></li>
+        <li><a href="methodology.html">Methodology</a></li>
+      </ul></nav>
+      <div class="header-actions"></div>
+    </div>
+  </header>
+  <article class="section legal-page">
+    <div class="section-inner" style="max-width:560px">
+      <h1>Contact Us</h1>
+      <form class="glass-card" data-contact-form style="display:flex;flex-direction:column;gap:12px;">
+        <label>Request type
+          <select name="type" style="width:100%;padding:10px;margin-top:4px;border-radius:8px;border:1px solid var(--line-strong)">
+            <option>Data correction</option>
+            <option>Privacy-related</option>
+            <option>Copyright / rights request</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label>Message (prototype demo — will not actually submit)
+          <textarea name="message" rows="5" required style="width:100%;padding:10px;margin-top:4px;border-radius:8px;border:1px solid var(--line-strong)"></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary">Submit (demo)</button>
+        <p data-contact-msg style="font-size:13px;color:var(--muted);margin:0;"></p>
+      </form>
+    </div>
+  </article>
+  <footer data-site-footer></footer>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/map-data.js"></script>
+  <script src="assets/js/world-map.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/footer.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/pro.js"></script>
+  <script src="assets/js/ads.js"></script>
+  <script>
+    document.querySelector("[data-contact-form]")?.addEventListener("submit", function (e) {
+      e.preventDefault();
+      document.querySelector("[data-contact-msg]").textContent =
+        "Thank you for your feedback. This is a prototype environment; the form will not be sent to a server.";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="assets/js/theme-init.js"></script>
+  <title>Support Us · Data Subscriptions · Global Pulse</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/fixes.css" />
+  <link rel="stylesheet" href="assets/css/premium.css" />
+  <link rel="stylesheet" href="assets/css/refine.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header site-header--dark" id="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark"><span data-icon="globe"></span></span><span>Global Pulse</span></a>
+      <button type="button" class="nav-toggle" data-nav-toggle aria-label="Menu">☰</button>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="leaders.html">Explore</a></li>
+          <li><a href="map.html">World Map</a></li>
+          <li><a href="rankings.html">Rankings</a></li>
+          <li><a href="timeline.html">History</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions"></div>
+    </div>
+  </header>
+
+  <section class="support-hero">
+    <p class="hero-eyebrow" style="justify-content:center;">Independent · Transparent · Non-profit oriented</p>
+    <h1>Support an independent<br />global public data project</h1>
+    <p>We don't sell votes, run targeted political ads, or sell your voting records. Operating costs are supported by donations, membership subscriptions, and institutional aggregated data subscriptions — keeping data neutral and free for everyone.</p>
+  </section>
+
+  <main>
+    <section class="section reveal" style="padding-top:56px;">
+      <div class="section-inner" style="max-width:720px;">
+        <div class="glass-card">
+          <h2>One-time Donation</h2>
+          <p style="color:var(--muted);font-size:14px;margin:0 0 8px;">Support servers, data verification, and multilingual translation. Donors <strong>cannot</strong> influence any leader's ranking.</p>
+          <div class="donate-row" data-donate-row>
+            <button type="button" data-amt="¥18">¥18</button>
+            <button type="button" data-amt="¥50" class="is-active">¥50</button>
+            <button type="button" data-amt="¥128">¥128</button>
+            <button type="button" data-amt="Custom">Custom</button>
+          </div>
+          <button type="button" class="btn btn-primary" style="width:100%;margin-top:8px;" data-donate-btn>Donate ¥50 (demo)</button>
+          <p style="font-size:11px;color:var(--muted-2);margin:12px 0 0;">This is a prototype environment with no real payment integration. At launch, we recommend Stripe or similar compliant channels.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" style="padding-top:24px;">
+      <div class="section-inner">
+        <header class="section-header"><div>
+          <h2>Membership</h2>
+          <p>Premium experience for individual users — never includes "buy votes / change rankings" features.</p>
+        </div></header>
+        <div data-pro-status></div>
+        <div class="pricing-grid">
+          <article class="price-card">
+            <h3>Free</h3>
+            <div class="price">¥0</div>
+            <p class="price-sub">Available to everyone</p>
+            <ul>
+              <li>All leaders and rankings</li>
+              <li>World map and history timeline</li>
+              <li>Anonymous voting, changeable</li>
+              <li>Includes light contextual ads</li>
+            </ul>
+            <a class="btn btn-ghost" href="index.html">Get started</a>
+          </article>
+
+          <article class="price-card price-card--featured">
+            <h3>Pro Member</h3>
+            <div class="price">¥18 <small>/ mo</small></div>
+            <p class="price-sub">Supporter's choice</p>
+            <ul>
+              <li>Ad-free, clean browsing</li>
+              <li>Advanced filters and multi-dimensional comparisons</li>
+              <li>Longer historical trends (12+ months)</li>
+              <li>Favorite leaders, custom lists</li>
+              <li>Approval rate change alerts</li>
+            </ul>
+            <button type="button" class="btn btn-primary" data-plan="pro">Upgrade to Pro (demo)</button>
+          </article>
+
+          <article class="price-card">
+            <h3>Education License</h3>
+            <div class="price">Contact for quote</div>
+            <p class="price-sub">Schools / course platforms</p>
+            <ul>
+              <li>Ad-free classroom edition</li>
+              <li>Historical leader topic collections</li>
+              <li>Citable methodology documentation</li>
+              <li>Bulk seat management</li>
+            </ul>
+            <a class="btn btn-ghost" href="contact.html">Contact us</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="data" style="padding-top:24px;">
+      <div class="section-inner">
+        <header class="section-header"><div>
+          <h2>Professional Data Subscription · API</h2>
+          <p>For media, researchers, universities, and think tanks. <strong>Aggregated</strong> data only — never individual-level vote records.</p>
+        </div></header>
+        <div class="pricing-grid">
+          <article class="price-card">
+            <h3>Report Edition</h3>
+            <div class="price">¥0 <small>/ summary</small></div>
+            <p class="price-sub">Global Leader Anonymous Approval Watch</p>
+            <ul>
+              <li>Free monthly summary</li>
+              <li>Full paid edition with charts</li>
+              <li>Citable with attribution</li>
+            </ul>
+            <a class="btn btn-ghost" href="contact.html">Subscribe to report</a>
+          </article>
+
+          <article class="price-card price-card--featured">
+            <h3>Data API</h3>
+            <div class="price">Usage-based</div>
+            <p class="price-sub">Aggregated trends / country dimension / time windows</p>
+            <ul>
+              <li>RESTful aggregated data API</li>
+              <li>Country / region and time-window statistics</li>
+              <li>Abnormal filtering documentation included</li>
+              <li>CSV bulk export</li>
+            </ul>
+            <a class="btn btn-primary" href="contact.html">Request access</a>
+          </article>
+
+          <article class="price-card">
+            <h3>Embeddable Widget</h3>
+            <div class="price">Free / licensed</div>
+            <p class="price-sub">For media and education sites</p>
+            <ul>
+              <li>"Leader approval rate" embed card</li>
+              <li>Aggregated data only</li>
+              <li>Includes site attribution and disclaimer</li>
+            </ul>
+            <a class="btn btn-ghost" href="contact.html">Get embed code</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" style="padding-top:24px;">
+      <div class="section-inner" style="max-width:860px;">
+        <div class="sponsor-slot">
+          <span class="brand-mark" aria-hidden="true"><span data-icon="globe"></span></span>
+          <div class="sponsor-slot__body">
+            <strong>Sponsored topic slot (example)</strong>
+            <span>e.g. "20th Century Leaders" or "Nobel Peace Prize Figures" — clearly labeled, does not affect vote rankings.</span>
+          </div>
+        </div>
+
+        <div class="editorial-note" style="margin-top:20px;">
+          <span aria-hidden="true">⚖</span>
+          <span><strong>We firmly do not:</strong> sell votes, charge to raise/hide approval rates, sell individual-level vote records, run targeted political ads for parties or candidates, or accept sponsorship to "attack" a leader. Commercialization is built on credibility.</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer data-site-footer></footer>
+
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/map-data.js"></script>
+  <script src="assets/js/world-map.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/footer.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/pro.js"></script>
+  <script src="assets/js/ads.js"></script>
+  <script>
+    (function () {
+      var row = document.querySelector("[data-donate-row]");
+      var btn = document.querySelector("[data-donate-btn]");
+      if (row && btn) {
+        row.addEventListener("click", function (e) {
+          var t = e.target.closest("button");
+          if (!t) return;
+          row.querySelectorAll("button").forEach(function (b) { b.classList.remove("is-active"); });
+          t.classList.add("is-active");
+          var amt = t.dataset.amt;
+          btn.textContent = amt === "Custom" ? "Enter amount to donate (demo)" : "Donate " + amt + " (demo)";
+        });
+      }
+      var donateBtn = document.querySelector("[data-donate-btn]");
+      if (donateBtn) {
+        donateBtn.addEventListener("click", function () {
+          if (window.GP_APP) window.GP_APP.showToast("Prototype demo: payment not yet connected");
+        });
+      }
+
+      function toast(m) { if (window.GP_APP) window.GP_APP.showToast(m); }
+
+      function renderProStatus() {
+        var box = document.querySelector("[data-pro-status]");
+        if (!box || !window.GP_PRO) return;
+        if (window.GP_PRO.isPro()) {
+          box.innerHTML =
+            '<div class="pro-status"><span class="pro-pill">PRO</span>' +
+            "<span>Pro membership active — ad-free site, premium features unlocked.</span>" +
+            '<button type="button" data-pro-cancel>Cancel membership</button></div>';
+          box.querySelector("[data-pro-cancel]").addEventListener("click", function () {
+            window.GP_PRO.deactivate();
+            toast("Pro membership cancelled (demo)");
+            renderProStatus();
+          });
+        } else {
+          box.innerHTML = "";
+        }
+      }
+
+      var proBtn = document.querySelector('[data-plan="pro"]');
+      if (proBtn) {
+        proBtn.addEventListener("click", function () {
+          if (window.GP_PRO && window.GP_PRO.isPro()) {
+            toast("You're already a Pro member");
+            return;
+          }
+          if (window.GP_PRO) window.GP_PRO.activate("pro");
+          toast("Pro activated (demo) — ads disabled");
+          renderProStatus();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
+
+      renderProStatus();
+    })();
+  </script>
+</body>
+</html>

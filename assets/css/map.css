@@ -1,0 +1,409 @@
+/* Leaflet world map */
+.hero-map-wrap,
+.map-page-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+#world-map,
+#world-map-full {
+  width: 100%;
+  height: 100%;
+  background: var(--hero-bg, #070a0f);
+}
+
+.leaflet-container {
+  font-family: var(--font-sans);
+  background: #0a0e14 !important;
+}
+
+.leaflet-control-attribution {
+  font-size: 10px !important;
+  background: rgba(10, 14, 20, 0.75) !important;
+  color: rgba(232, 236, 239, 0.45) !important;
+  backdrop-filter: blur(8px);
+  border-radius: 6px 0 0 0;
+  padding: 4px 8px !important;
+}
+
+.leaflet-control-attribution a {
+  color: rgba(140, 180, 220, 0.8) !important;
+}
+
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: var(--shadow-md) !important;
+  border-radius: var(--radius-sm) !important;
+  overflow: hidden;
+}
+
+.leaflet-control-zoom a {
+  background: var(--surface-glass) !important;
+  backdrop-filter: blur(12px);
+  color: var(--ink) !important;
+  border-color: var(--line) !important;
+  width: 36px !important;
+  height: 36px !important;
+  line-height: 36px !important;
+}
+
+.leaflet-popup-premium .leaflet-popup-content-wrapper {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: 0;
+}
+
+.leaflet-popup-premium .leaflet-popup-content {
+  margin: 12px 14px;
+  line-height: 1.45;
+  font-size: 13px;
+}
+
+.leaflet-popup-premium .leaflet-popup-tip {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: none;
+}
+
+.map-popup {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  min-width: 200px;
+}
+
+.map-popup-avatar {
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.map-popup-meta {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+
+.map-popup-name {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.map-popup-rate {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--support);
+  margin-bottom: 8px;
+}
+
+.map-popup-link {
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.map-popup--country p {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Leader markers */
+.map-leader-icon-wrap {
+  background: transparent !important;
+  border: none !important;
+}
+
+.map-marker {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-marker-ring {
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  border: 2px solid rgba(30, 79, 148, 0.55);
+  animation: map-ping 2.4s var(--ease-out) infinite;
+}
+
+.map-marker--history .map-marker-ring {
+  border-color: rgba(166, 124, 26, 0.6);
+}
+
+.map-marker--frozen .map-marker-ring {
+  border-color: rgba(90, 100, 115, 0.5);
+  animation: none;
+}
+
+@keyframes map-ping {
+  0% { transform: scale(0.85); opacity: 0.9; }
+  70% { transform: scale(1.35); opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.map-marker-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--civic-blue);
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+.map-marker--history .map-marker-dot {
+  background: var(--gold);
+}
+
+.map-marker-rate {
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  padding: 2px 5px;
+  border-radius: 4px;
+  background: rgba(10, 14, 20, 0.88);
+  color: #fff;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.map-marker-rate.is-support { color: #6dd4b8; }
+.map-marker-rate.is-oppose { color: #f0a099; }
+.map-marker-rate.is-muted { color: #9aa3ad; }
+
+/* Full map page */
+.map-page {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  height: calc(100vh - var(--nav-h));
+  margin-top: var(--nav-h);
+  background: #0a0e14;
+}
+
+.map-page-main {
+  position: relative;
+  min-height: 0;
+}
+
+.map-sidebar {
+  background: var(--surface);
+  border-left: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.map-sidebar-header {
+  padding: 20px 20px 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.map-sidebar-header h1 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0 0 6px;
+}
+
+.map-sidebar-header p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--line);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-item i {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.map-country-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.map-country-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  gap: 2px 12px;
+  width: 100%;
+  padding: 12px 14px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: inherit;
+}
+
+.map-country-row:hover {
+  background: var(--bg);
+}
+
+.map-country-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  grid-column: 1;
+}
+
+.map-country-rate {
+  font-size: 14px;
+  font-weight: 500;
+  grid-column: 2;
+  grid-row: 1 / 3;
+  align-self: center;
+}
+
+.map-country-votes {
+  font-size: 11px;
+  color: var(--muted);
+  grid-column: 1;
+}
+
+.map-toolbar {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 500;
+  display: flex;
+  gap: 8px;
+}
+
+.map-toolbar .chip {
+  background: var(--surface-glass);
+  backdrop-filter: blur(12px);
+  border-color: var(--line);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.map-toolbar .chip.is-active {
+  border-color: var(--civic-blue);
+  box-shadow: 0 0 0 3px var(--civic-blue-soft);
+}
+
+.hero-map-hint {
+  position: absolute;
+  bottom: 100px;
+  right: 24px;
+  z-index: 500;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  background: rgba(10, 14, 20, 0.72);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--hero-border);
+  color: var(--hero-muted);
+  font-size: 11px;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .map-page {
+    grid-template-columns: 1fr;
+    grid-template-rows: 55vh 1fr;
+    height: auto;
+    min-height: calc(100vh - var(--nav-h));
+  }
+
+  .map-sidebar {
+    border-left: none;
+    border-top: 1px solid var(--line);
+    max-height: 45vh;
+  }
+
+  .hero-map-hint { display: none; }
+}
+
+/* —— Dark theme map integration —— */
+html[data-theme="dark"] #world-map,
+html[data-theme="dark"] #world-map-full {
+  background: #080b10;
+}
+
+html[data-theme="dark"] .leaflet-container {
+  background: #080b10 !important;
+}
+
+html[data-theme="dark"] .map-page {
+  background: #080b10;
+}
+
+html[data-theme="dark"] .map-sidebar {
+  background: var(--surface);
+  border-left-color: var(--line);
+}
+
+html[data-theme="dark"] .map-sidebar-header,
+html[data-theme="dark"] .map-legend {
+  border-bottom-color: var(--line);
+}
+
+html[data-theme="dark"] .map-country-row:hover {
+  background: var(--bg-elevated);
+}
+
+html[data-theme="dark"] .leaflet-control-zoom a {
+  background: var(--surface-glass) !important;
+  color: var(--ink) !important;
+  border-color: var(--line) !important;
+}
+
+html[data-theme="dark"] .leaflet-popup-premium .leaflet-popup-content-wrapper,
+html[data-theme="dark"] .leaflet-popup-premium .leaflet-popup-tip {
+  background: var(--surface);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .map-toolbar .chip {
+  background: var(--surface-glass);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .map-marker-dot {
+  border-color: var(--surface);
+}
+
+html[data-theme="dark"] .hero-map-hint {
+  background: rgba(8, 11, 16, 0.85);
+  border-color: var(--line);
+  color: var(--muted);
+}

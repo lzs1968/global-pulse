@@ -1,0 +1,13 @@
+# Cloudflare Pages 配置 · Global Pulse
+# 静态站根目录就是仓库根目录（所有 .html 在这里），
+# functions/ 目录会被 Pages 自动识别为后端函数（/api/vote）。
+
+name = "global-pulse"
+compatibility_date = "2024-09-01"
+pages_build_output_dir = "."
+
+# D1 binding — see docs/DEPLOY.md. After `npm run db:create`, paste database_id here.
+[[d1_databases]]
+binding = "DB"
+database_name = "global-pulse-votes"
+database_id = "PASTE_YOUR_D1_DATABASE_ID_HERE"
