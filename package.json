@@ -5,6 +5,11 @@
   "description": "Anonymous global leader approval barometer — vanilla JS, world map, Cloudflare-ready",
   "license": "MIT",
   "keywords": ["voting", "leaders", "approval-rating", "world-map", "cloudflare-pages", "d1", "vanilla-js", "open-source"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lzs1968/global-pulse.git"
+  },
+  "homepage": "https://github.com/lzs1968/global-pulse#readme",
   "scripts": {
     "dev": "wrangler pages dev . --d1=DB",
     "db:create": "wrangler d1 create global-pulse-votes",
